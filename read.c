@@ -2,9 +2,9 @@
 char *hsh_read(void)
 {
 	char *line = NULL;
-	int *bufsize = 1024;
+	size_t bufsize = 1024;
 
-	if (getline(&line, bufsize, stdin) == -1)
+	if (getline(&line, &bufsize, stdin) == -1)
 	{
 		if (feof(stdin))
 			exit(EXIT_SUCCESS); /*exit as sucess*/

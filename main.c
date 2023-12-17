@@ -2,7 +2,6 @@
 
 int main()
 {
-	/*INIT*/
 	int state;
 	char **command;
 	char *line;
@@ -17,7 +16,7 @@ int main()
 		command = hsh_parse(line);
 
 		/*EXECUTE*/
-		state = hsh_exec(state);
+		state = hsh_exec(command);
 
 		/*memory leaks aren't allowed :) */
 		free(line);

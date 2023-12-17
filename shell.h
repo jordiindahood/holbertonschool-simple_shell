@@ -9,12 +9,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+#include <sys/wait.h>
 
 /**MACROS*/
 
+#define _GNU_SOURCE
 #define _POSIX_C_SOURCE 200809L
-#define DELIMITER " \t\r\n\a"
+#define DELIMITER " "
 #define EXIT_TEXT "EXIT"
 
 
