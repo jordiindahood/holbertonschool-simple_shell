@@ -10,20 +10,27 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
 
 /**MACROS*/
 
 #define _GNU_SOURCE
 #define _POSIX_C_SOURCE 200809L
-#define DELIMITER " "
+#define DELIMITER " \t\n"
 #define EXIT_TEXT "EXIT"
 
 
+extern char **environ;
 /*functions for stages of ./hsh program*/
 
 char *hsh_read(void);
 char **hsh_parse(char *);
-int hsh_exec(char**);
+int hsh_exec(char**,char**);
 
+char *_getenv(char *var);
+char *_getpath(char *);
+void free_dp(char **command);
 
 #endif

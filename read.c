@@ -6,6 +6,7 @@ char *hsh_read(void)
 
 	if (getline(&line, &bufsize, stdin) == -1)
 	{
+		putchar('\n');
 		if (feof(stdin))
 			exit(EXIT_SUCCESS); /*exit as sucess*/
 		else
