@@ -37,18 +37,18 @@ char *_getpath(char *command)
 			snprintf(the_real_command, strlen(directory) + strlen(command) + 2, "%s/%s", directory, command);
 			if (stat(the_real_command, &state) == 0)
 			{
-				free(the_path);
+				free(the_path), the_path = NULL;
 				return (the_real_command);
 			}
-			free(the_real_command);
+			free(the_real_command), the_real_command = NULL;
 			directory = strtok(NULL, ":");
 		}
 		else
 		{
-			free(the_path);
+			free(the_path), the_path = NULL;
 			return NULL;
 		}
 	}
-	free(the_path);
+		free(the_path), the_path = NULL;
 	return (NULL);
 }

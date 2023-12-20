@@ -1,35 +1,41 @@
 #include "shell.h"
 char **hsh_parse(char *line)
 {
-	int size = 1024, pos = 0;
-	char **tokens = malloc(size * sizeof(char *));
-	char *token;
+	char *token, *delim = DELIMITER, *tmp = NULL, **command = NULL;
+	int count = 0, i = 0;
 
-	if (!tokens)
+	if (!line)
+		return (NULL);
+	tmp = strdup(line);
+	token = strtok(tmp, delim);
+	if (token == NULL)
 	{
-		fprintf(stderr, "error at allocation");
-		exit(EXIT_FAILURE);
+		free(line), line = NULL;
+		free(tmp), tmp = NULL;
+		return (NULL);
 	}
 
-	token = strtok(line, DELIMITER);
-	while (token != NULL)
+	while (token)
 	{
-		tokens[pos] = token;
-		pos++;
-
-		if (pos >= size)
-		{
-			size += 1024;
-			tokens = realloc(tokens, size * sizeof(char *));
-			if (!tokens)
-			{
-				fprintf(stderr, "lsh: allocation error\n");
-				exit(EXIT_FAILURE);
-			}
-		}
-
-		token = strtok(NULL, DELIMITER);
+		count++;
+		token = strtok(NULL, delim);
 	}
-	tokens[pos] = NULL;
-	return tokens;
+	free(tmp), tmp = NULL;
+	command = malloc(sizeof(char *) * (count + 1));
+	if (!command)
+	{
+		free(line), line = NULL;
+		return (NULL);
+	}
+
+	token = strtok(line, delim);
+	while (token)
+	{
+		command[i] = strdup(token); /*DONT TOUCH*/
+		token = strtok(NULL, delim);
+		i++;
+	}
+	free(line), line = NULL;/*DONT TOUCH*/
+	command[i] = NULL;
+	return (command);
 }

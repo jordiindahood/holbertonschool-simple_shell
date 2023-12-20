@@ -12,7 +12,7 @@ void free_dp(char **command)
 		return;
 
 	for (i = 0; command[i]; i++)
-		free(command[i]);
-
-	free(command);
+		free(command[i]), command[i] = NULL;
+	if (command)
+		free(command), command = NULL;
 }

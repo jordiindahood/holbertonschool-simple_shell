@@ -1,43 +1,44 @@
 #include "shell.h"
 
-int main(int argc __attribute__((unused)), char **av __attribute__((unused)), char **env)
+int main(__attribute__((unused)) int ac, char **av)
 {
-	int state = 1;
+	int state = 1, index = 0;
 	char **command;
 	char *line;
 
 	do
 	{
-		/*print prompt*/
-		printf("$ ");
-
 		/*READ*/
 		line = hsh_read();
+		/*interactive mode*/
 		if (line == NULL)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
 			return (state);
 		}
+		index++;
 		/*skip to loop if nothing printed*/
-		if (line && line[0] != '\n')
+
+		/*EXIT: if "exit" command is written properly in stdin*/
+		if (strncmp(line, "exit", 4) == 0 && line)
 		{
-			/*EXIT: if "exit" command is written properly in stdin*/
-			if (strncmp(line, "exit", 4) == 0 && line)
-			{
-				free(line);
-				break;
-			}
-			/*PARSE*/
-			command = hsh_parse(line);
-
-			/*EXECUTE*/
-			state = hsh_exec(command, env);
-
-			/*memory leaks aren't allowed :) */
-			free_dp(command);
+			free(line), line = NULL;
+			exit(EXIT_SUCCESS);
 		}
-	} while (state);
+
+		/*PARSE*/
+		command = hsh_parse(line);
+
+		/*EXECUTE*/
+		if (!command)
+			continue;
+		if (is_built_in(command) == 1)
+			handle_built_in(command, &state, index, av);
+		else
+			state = hsh_exec(command, av, index);
+
+	} while (1);
 
 	/*exit in a success state*/
 	return (EXIT_SUCCESS);

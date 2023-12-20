@@ -1,20 +1,18 @@
 #include "shell.h"
 char *hsh_read(void)
 {
-	char *line = NULL;
-	size_t bufsize = 1024;
+	ssize_t n;
+	size_t len = 0;
+	char *buf = NULL;
 
-	if (getline(&line, &bufsize, stdin) == -1)
+	if (isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "$ ", 2);
+
+	n = getline(&buf, &len, stdin);
+	if (n == -1)
 	{
-		putchar('\n');
-		if (feof(stdin))
-			exit(EXIT_SUCCESS); /*exit as sucess*/
-		else
-		{
-			perror("readline");
-			exit(EXIT_FAILURE); /*exit as fail*/
-		}
+		free(buf), buf = NULL;
+		return (NULL);
 	}
-
-	return (line);
+	return (buf);
 }
