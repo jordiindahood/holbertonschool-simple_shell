@@ -13,7 +13,12 @@ int main(int argc __attribute__((unused)), char **av __attribute__((unused)), ch
 
 		/*READ*/
 		line = hsh_read();
-
+		if (line == NULL)
+		{
+			if (isatty(STDIN_FILENO))
+				write(STDOUT_FILENO, "\n", 1);
+			return (state);
+		}
 		/*skip to loop if nothing printed*/
 		if (line && line[0] != '\n')
 		{
