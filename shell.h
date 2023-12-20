@@ -1,7 +1,6 @@
 #ifndef SIMPLE_SH
 #define SIMPLE_SH
 
-
 /*libraries*/
 
 #include <string.h>
@@ -21,13 +20,19 @@
 #define DELIMITER " \t\n"
 #define EXIT_TEXT "EXIT"
 
-
 extern char **environ;
 /*functions for stages of ./hsh program*/
 
 char *hsh_read(void);
 char **hsh_parse(char *);
-int hsh_exec(char**,char**);
+int hsh_exec(char **, char **, int);
+
+/*functions for built-in*/
+void handle_built_in(char **command, int *status, int idx, char **av);
+void hsh_cd(char **cmd, int *status, int idx, char **av);
+void hsh_exit(char **cmd, int *status);
+void hsh_env(char **cmd, int *status);
+int is_built_in(char **command);
 
 char *_getenv(char *var);
 char *_getpath(char *);
