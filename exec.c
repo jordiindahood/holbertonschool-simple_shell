@@ -21,7 +21,7 @@ int hsh_exec(char **command, char *env[], int idx, char **av)
 		fprintf(stderr, "%s: %d: %s: not found\n", av[0], idx, command[0]);
 		if (command)
 			free_dp(command), command = NULL;
-		exit(127);
+		return(127);
 	}
 
 	pid = fork();
