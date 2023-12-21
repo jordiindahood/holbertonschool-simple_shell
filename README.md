@@ -75,7 +75,7 @@ No known bugs exists within the program as of this writing.
 ## Authors
 Hazem Ouni| [@jordiindahood](https://github.com/jordiindahood)
 
-Azza Guesmi | [@aazzaguesmi](https://github.com/azzaguesmi)
+Azza Guesmi | [@azzaguesmi00](https://github.com/azzaguesmi00)
 
 ## License
 Given the open source nature of the project, no special licenses or license whatsoever is needed to use, modify, and redistribute the simple_shell program.
