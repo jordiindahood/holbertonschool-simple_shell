@@ -18,7 +18,7 @@ void handle_built_in(char **command, int *status, int idx, char **av)
 {
 	if (strcmp(command[0], "exit") == 0)
 	{
-		hsh_exit(command, 2);
+		hsh_exit(command, status);
 	}
 	else if (strcmp(command[0], "env") == 0)
 	{
