@@ -36,7 +36,8 @@ int main(__attribute__((unused)) int ac, char **av)
 		else
 			state = hsh_exec(command, av, index);
 
-	} while (1);
+	} 
+	while (1);
 
 	/*return state*/
 	return (0);
