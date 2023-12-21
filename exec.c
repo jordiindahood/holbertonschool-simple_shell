@@ -19,7 +19,7 @@ int hsh_exec(char **command, char *env[], int idx)
 
 	if (!command_with_path)
 	{
-		fprintf(stderr, "./hsh: %d %s: not found\n", idx, command[0]);
+		fprintf(stderr, "./hsh: %d: %s: not found\n", idx, command[0]);
 		if (command)
 			free_dp(command), command = NULL;
 		return (127);
