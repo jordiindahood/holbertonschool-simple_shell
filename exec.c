@@ -22,7 +22,7 @@ int hsh_exec(char **command, char *env[], int idx)
 		fprintf(stderr, "./hsh: %d: %s: not found\n", idx, command[0]);
 		if (command)
 			free_dp(command), command = NULL;
-		return (WEXITSTATUS(127));
+		exit(127);
 	}
 
 	pid = fork();
