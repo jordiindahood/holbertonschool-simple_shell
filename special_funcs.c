@@ -9,6 +9,7 @@ int is_built_in(char **command)
 {
 	char *built[] = {"exit", "env", "cd", "help", NULL};
 	int i;
+
 	for (i = 0; built[i]; i++)
 	{
 		if (strcmp(command[0], built[i]) == 0)
