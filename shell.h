@@ -25,7 +25,7 @@ extern char **environ;
 
 char *hsh_read(void);
 char **hsh_parse(char *);
-int hsh_exec(char **, char **, int);
+int hsh_exec(char **, char **, int, char **);
 
 /*functions for built-in*/
 void handle_built_in(char **command, int *status, int idx, char **av);

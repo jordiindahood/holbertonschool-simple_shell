@@ -33,7 +33,7 @@ int main(__attribute__((unused)) int ac, char **av)
 		if (is_built_in(command) == 1)
 			handle_built_in(command, &state, index, av);
 		else
-			state = hsh_exec(command, av, index);
+			state = hsh_exec(command, av, index,av);
 	} while (1);
 	/*return state*/
 	return (0);

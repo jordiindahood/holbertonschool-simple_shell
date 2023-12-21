@@ -5,9 +5,10 @@
  * @command: char
  * @env: array of char
  * @idx: int
+ * @av: char**
  * Return: int
  */
-int hsh_exec(char **command, char *env[], int idx)
+int hsh_exec(char **command, char *env[], int idx, char **av)
 {
 	pid_t pid;
 	int status;
@@ -17,7 +18,7 @@ int hsh_exec(char **command, char *env[], int idx)
 
 	if (!command_with_path)
 	{
-		fprintf(stderr, "./hsh: %d: %s: not found\n", idx, command[0]);
+		fprintf(stderr, "%s: %d: %s: not found\n", av[0], idx, command[0]);
 		if (command)
 			free_dp(command), command = NULL;
 		exit(127);
@@ -29,7 +30,7 @@ int hsh_exec(char **command, char *env[], int idx)
 		/*Child process*/
 		if (execve(command_with_path, command, env) == -1)
 		{
-			perror("hsh fail ");
+			fprintf(stderr,"%s fail ",av[0]);
 		}
 	}
 	else
