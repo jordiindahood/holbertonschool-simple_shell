@@ -26,7 +26,7 @@ int is_built_in(char **command)
  * @idx: int
  * @av: **char
  * Return: void
-*/
+ */
 
 void handle_built_in(char **command, int *status, int idx, char **av)
 {
@@ -48,7 +48,7 @@ void handle_built_in(char **command, int *status, int idx, char **av)
  * @cmd: **char
  * @status: *int
  * Return: void
-*/
+ */
 void hsh_exit(char **cmd, int *status)
 {
 	free_dp(cmd);
@@ -59,7 +59,7 @@ void hsh_exit(char **cmd, int *status)
  * @cmd: **char
  * @status: *int
  * Return: void
-*/
+ */
 void hsh_env(char **cmd, int *status)
 {
 	int i;
@@ -78,7 +78,7 @@ void hsh_env(char **cmd, int *status)
  * @idx: int
  * @av: **char
  * Return: void
-*/
+ */
 void hsh_cd(char **cmd, int *status, int idx, char **av)
 {
 	(*status) = 0;
