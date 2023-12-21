@@ -32,7 +32,6 @@ void handle_built_in(char **command, int *status, int idx, char **av)
 
 void hsh_exit(char **cmd, int *status)
 {
-	*status = 2;
 	free_dp(cmd);
 	exit(*status);
 }
