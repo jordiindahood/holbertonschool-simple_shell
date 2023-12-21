@@ -26,7 +26,9 @@ char *_getpath(char *command)
 		the_real_command = malloc(strlen(directory) + strlen(command) + 2);
 		if (the_real_command != NULL)
 		{
-			snprintf(the_real_command, strlen(directory) + strlen(command) + 2, "%s/%s", directory, command);
+			strcpy(the_real_command, directory);
+			strcat(the_real_command, "/");
+			strcat(the_real_command, command);
 			if (stat(the_real_command, &state) == 0)
 			{
 				free(the_path), the_path = NULL;
@@ -44,10 +46,16 @@ char *_getpath(char *command)
 	free(the_path), the_path = NULL;
 	return (NULL);
 }
+/**
+ * if_command_with_path- checking
+ * @command: *char
+ * Return: string
+ */
 char *if_command_with_path(char *command)
 {
 	struct stat state;
 	int i = 0;
+
 	while (command[i])
 	{
 		if (command[i] == '/')
