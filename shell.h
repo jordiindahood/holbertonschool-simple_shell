@@ -34,6 +34,7 @@ void hsh_exit(char **cmd, int *status);
 void hsh_env(char **cmd, int *status);
 int is_built_in(char **command);
 
+/*special functions*/
 char *_getenv(char *var);
 char *_getpath(char *);
 void free_dp(char **command);
