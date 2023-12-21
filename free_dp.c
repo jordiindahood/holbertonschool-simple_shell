@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * free_dp - free 2d array
+ * free_dp - free 2d array 
  * @command: char**
  * Return: void
  */
