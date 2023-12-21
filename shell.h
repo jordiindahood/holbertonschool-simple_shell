@@ -37,5 +37,6 @@ int is_built_in(char **command);
 char *_getenv(char *var);
 char *_getpath(char *);
 void free_dp(char **command);
+char *if_command_with_path(char *command);
 
 #endif
