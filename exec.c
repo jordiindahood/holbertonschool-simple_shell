@@ -13,8 +13,6 @@ int hsh_exec(char **command, char *env[], int idx)
 	int status;
 	char *command_with_path;
 
-	(void)idx;
-
 	command_with_path = _getpath(command[0]);
 
 	if (!command_with_path)
