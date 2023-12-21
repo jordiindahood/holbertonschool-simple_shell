@@ -12,8 +12,7 @@ int main(__attribute__((unused)) int ac, char **av)
 	char **command;
 	char *line;
 
-	do
-	{
+	do {
 		/*READ*/
 		line = hsh_read();
 		/*interactive mode*/
@@ -35,10 +34,7 @@ int main(__attribute__((unused)) int ac, char **av)
 			handle_built_in(command, &state, index, av);
 		else
 			state = hsh_exec(command, av, index);
-
-	} 
-	while (1);
-
+	} while (1);
 	/*return state*/
 	return (0);
 }
