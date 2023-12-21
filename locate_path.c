@@ -1,10 +1,10 @@
 #include "shell.h"
 #include <unistd.h>
 /**
- * _getpath- locate the path 
+ * _getpath- locate the path
  * @command: *char
  * Return: string
-*/
+ */
 char *_getpath(char *command)
 {
 
@@ -54,6 +54,6 @@ char *_getpath(char *command)
 			return NULL;
 		}
 	}
-		free(the_path), the_path = NULL;
+	free(the_path), the_path = NULL;
 	return (NULL);
 }
