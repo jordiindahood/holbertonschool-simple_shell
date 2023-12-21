@@ -1,5 +1,12 @@
 #include "shell.h"
 #include <unistd.h>
+/**
+ * hsh_exec- excute a function
+ * @command: char
+ * @env: array of char
+ * @idx: int
+ * Return: int
+*/
 int hsh_exec(char **command, char *env[],int idx)
 {
 	pid_t pid;
