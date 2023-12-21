@@ -37,11 +37,11 @@ char **hsh_parse(char *line)
 	token = strtok(line, delim);
 	while (token)
 	{
-		command[i] = strdup(token); /*DONT TOUCH*/
+		command[i] = strdup(token);
 		token = strtok(NULL, delim);
 		i++;
 	}
-	free(line), line = NULL;/*DONT TOUCH*/
+	free(line), line = NULL;
 	command[i] = NULL;
 	return (command);
 }
