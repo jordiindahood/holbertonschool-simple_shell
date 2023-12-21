@@ -67,9 +67,8 @@ $
  - [x] 4. Simple shell 0.3
  - [x] 5. Simple shell 0.4
  - [x] 6. Simple shell 1.0
- - [x] 7. What happens when you type `ls -l \*.c` in the shell
 ## Advanced Tasks
- not yet
+ - [x] 7. What happens when you type `ls -l \*.c` in the shell
 ## Bugs
 No known bugs exists within the program as of this writing.
 
