@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
- * hsh_parse- convert string to array of strings		
+ * hsh_parse- convert string to array of strings
  * @line: char
  * Return: **char
-*/
+ */
 
 char **hsh_parse(char *line)
 {
