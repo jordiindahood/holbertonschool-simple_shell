@@ -1,8 +1,8 @@
 #include "shell.h"
 /**
- * _getenv- returns the string array copy of our environ
- * @var: char
- * Return: null
+ * _getenv- returns the value of env
+ * @var: *char
+ * Return: *char
 */
 char *_getenv(char *var)
 {
