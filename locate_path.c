@@ -7,25 +7,13 @@
  */
 char *_getpath(char *command)
 {
-
 	char *the_path, *the_real_command, *directory;
 	struct stat state;
-	int i;
 
 	/*case1: command with full path, example (/bin/ls)*/
-	i = 0;
-	while (command[i])
-	{
-		if (command[i] == '/')
-		{
-			if (stat(command, &state) == 0)
-			{
-				return (command);
-			}
-			return (NULL);
-		}
-		i++;
-	}
+
+	if (if_command_with_path(command))
+		return (if_command_with_path(command));
 
 	/*case2: command without path, example(whoami)*/
 	the_path = _getenv("PATH");
@@ -36,7 +24,6 @@ char *_getpath(char *command)
 	while (directory)
 	{
 		the_real_command = malloc(strlen(directory) + strlen(command) + 2);
-
 		if (the_real_command != NULL)
 		{
 			snprintf(the_real_command, strlen(directory) + strlen(command) + 2, "%s/%s", directory, command);
@@ -51,9 +38,27 @@ char *_getpath(char *command)
 		else
 		{
 			free(the_path), the_path = NULL;
-			return NULL;
+			return (NULL);
 		}
 	}
 	free(the_path), the_path = NULL;
+	return (NULL);
+}
+char *if_command_with_path(char *command)
+{
+	struct stat state;
+	int i = 0;
+	while (command[i])
+	{
+		if (command[i] == '/')
+		{
+			if (stat(command, &state) == 0)
+			{
+				return (command);
+			}
+			return (NULL);
+		}
+		i++;
+	}
 	return (NULL);
 }
