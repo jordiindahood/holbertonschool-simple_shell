@@ -17,6 +17,7 @@ int hsh_exec(char **command, char *env[],int idx)
 			free_dp(command), command = NULL;
 		return (127);
 	}
+
 	pid = fork();
 	if (pid == 0)
 	{
