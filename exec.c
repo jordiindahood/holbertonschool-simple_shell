@@ -30,7 +30,8 @@ int hsh_exec(char **command, char *env[], int idx, char **av)
 		/*Child process*/
 		if (execve(command_with_path, command, env) == -1)
 		{
-			fprintf(stderr,"%s fail ",av[0]);
+			fprintf(stderr, "%s fail ", av[0]);
+			free_dp(command), command = NULL;
 		}
 	}
 	else
