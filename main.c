@@ -8,7 +8,7 @@
 
 int main(__attribute__((unused)) int ac, char **av)
 {
-	int state = 1, index = 0;
+	int state = 0, index = 0;
 	char **command;
 	char *line;
 
