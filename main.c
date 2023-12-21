@@ -15,7 +15,7 @@ int main(__attribute__((unused)) int ac, char **av)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
-			return (state);
+			return (0);
 		}
 		index++;
 		/*skip to loop if nothing printed*/
