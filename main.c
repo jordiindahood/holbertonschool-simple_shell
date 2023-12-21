@@ -47,5 +47,5 @@ int main(__attribute__((unused)) int ac, char **av)
 	} while (1);
 
 	/*return state*/
-	return (state);
+	return (0);
 }
