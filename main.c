@@ -1,4 +1,10 @@
 #include "shell.h"
+/**
+ * main - entry point
+ * @ac: int
+ * @av: char
+ * Return: int
+*/
 
 int main(__attribute__((unused)) int ac, char **av)
 {

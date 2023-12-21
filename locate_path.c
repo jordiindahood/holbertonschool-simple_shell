@@ -1,5 +1,10 @@
 #include "shell.h"
 #include <unistd.h>
+/**
+ * _getpath- locate the path 
+ * @command: *char
+ * Return: string
+*/
 char *_getpath(char *command)
 {
 
