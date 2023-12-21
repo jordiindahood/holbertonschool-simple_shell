@@ -24,14 +24,6 @@ int main(__attribute__((unused)) int ac, char **av)
 			return (0);
 		}
 		index++;
-		/*skip to loop if nothing printed*/
-
-		/*EXIT: if "exit" command is written properly in stdin*/
-		if (strncmp(line, "exit", 4) == 0 && line)
-		{
-			free(line), line = NULL;
-			exit(EXIT_SUCCESS);
-		}
 
 		/*PARSE*/
 		command = hsh_parse(line);
