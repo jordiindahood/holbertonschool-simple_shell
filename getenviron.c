@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+ * _getenv- returns the string array copy of our environ
+ * @var: char
+ * Return: null
+*/
 char *_getenv(char *var)
 {
     char *tmp, *value, *key, *env;
