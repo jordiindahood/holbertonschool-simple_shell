@@ -46,6 +46,6 @@ int main(__attribute__((unused)) int ac, char **av)
 
 	} while (1);
 
-	/*exit in a success state*/
-	return (EXIT_SUCCESS);
+	/*return state*/
+	return (state);
 }

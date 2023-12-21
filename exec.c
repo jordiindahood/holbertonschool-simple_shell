@@ -6,8 +6,8 @@
  * @env: array of char
  * @idx: int
  * Return: int
-*/
-int hsh_exec(char **command, char *env[],int idx)
+ */
+int hsh_exec(char **command, char *env[], int idx)
 {
 	pid_t pid;
 	int status;
@@ -19,11 +19,12 @@ int hsh_exec(char **command, char *env[],int idx)
 
 	if (!command_with_path)
 	{
-		perror("FAIL IN (_getpath)");
+		fprintf(stderr, "./hsh: %d: %s: not found\n", idx, command[0]);
 		if (command)
 			free_dp(command), command = NULL;
-		return (127);
+		return (WEXITSTATUS(127));
 	}
+
 	pid = fork();
 	if (pid == 0)
 	{
@@ -31,14 +32,14 @@ int hsh_exec(char **command, char *env[],int idx)
 		if (execve(command_with_path, command, env) == -1)
 		{
 			perror("hsh fail ");
-			if (command_with_path)
-				free(command_with_path), command_with_path = NULL;
 		}
 	}
 	else
 	{
 		/*Parent process*/
 		waitpid(pid, &status, 0);
+		if (strcmp(command_with_path, command[0]) != 0)
+			free(command_with_path), command_with_path = NULL;
 		free_dp(command), command = NULL;
 	}
 	return (WEXITSTATUS(status));
