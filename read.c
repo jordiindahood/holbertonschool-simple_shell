@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+ * hsh_read- Read a line of input from stdin
+ *	
+ * Return: string on success or null if error  
+*/
 char *hsh_read(void)
 {
 	ssize_t n;
