@@ -47,7 +47,7 @@ char *_getpath(char *command)
 	return (NULL);
 }
 /**
- * if_command_with_path- checking
+ * if_command_with_path- checking if command itself has path and valid
  * @command: *char
  * Return: string
  */
