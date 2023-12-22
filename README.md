@@ -79,3 +79,6 @@ Azza Guesmi | [@azzaguesmi00](https://github.com/azzaguesmi00)
 
 ## License
 Given the open source nature of the project, no special licenses or license whatsoever is needed to use, modify, and redistribute the simple_shell program.
+
+## FlowChart
+![Alt Text](hsh_flowchart.png)
